@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<deployments>
+  <deployment alt-context-root="" context-root="/Bridge" deployment-path="F:/Code/MyEclipse Projects/BridgeGame/.metadata/.me_tcat7/webapps/Bridge" project-name="Bridge" server-id="myeclipseTomcatServer7" state="DEPLOYED" type="WEB"/>
+</deployments>

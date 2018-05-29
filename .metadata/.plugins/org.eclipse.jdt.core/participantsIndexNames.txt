@@ -1,0 +1,5 @@
+INDEX VERSION 1.126
+F:\Code\MyEclipse Projects\BridgeGame\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3729514094.index
+\Bridge\src
+F:\Code\MyEclipse Projects\BridgeGame\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2680196078.index
+\Bridge\src

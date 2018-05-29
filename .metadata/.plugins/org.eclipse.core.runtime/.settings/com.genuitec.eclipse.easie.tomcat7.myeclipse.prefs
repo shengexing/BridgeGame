@@ -1,0 +1,5 @@
+ENDORSED_DIRS="D\:\\SoftWareDevelopment\\MyEclipse Professional 2014\\plugins\\com.genuitec.eclipse.easie.tomcat7.myeclipse_11.5.0.me201310302042\\tomcat/common/endorsed"
+JDK_HOME=D\:\\SoftWareDevelopment\\MyEclipse Professional 2014\\binary\\com.sun.java.jdk7.win32.x86_64_1.7.0.u45
+LIBRARY_PATH="D\:\\SoftWareDevelopment\\MyEclipse Professional 2014\\binary\\com.sun.java.jdk7.win32.x86_64_1.7.0.u45\\bin;D\:\\SoftWareDevelopment\\MyEclipse Professional 2014\\plugins\\com.genuitec.eclipse.easie.tomcat7.myeclipse_11.5.0.me201310302042\\tomcat\\bin"
+eclipse.preferences.version=1
+tomcat.configuration.version.current=7
