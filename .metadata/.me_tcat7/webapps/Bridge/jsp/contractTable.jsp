@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 		<!-- 叫牌表格的设计 -->
 		<div class="callTable"
-			style="width: 300px; height: 80px; overflow-y: scroll; scrollbar-base-color: #ff6600; border: 1px solid;">
+			style="width: 300px; height: 100px; overflow-y: scroll; scrollbar-base-color: #ff6600; border: 1px solid;">
 			<table id="data" style="width: 100%; height: 100%; text-align: center;">
 				<tr>
 					<th>N</th>
@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 
 		<!-- 叫牌定约卡的设计 -->
-		<div class="contractCard" style="width: 300px; height: 220px; border: 1px solid;">
+		<div class="contractCard" style="width: 300px; height: 250px; border: 1px solid;">
 			<table style="width: 100%; height: 85%">
 				<tr>
 					<td><input id="button0" type="button" value="1C" onclick="callCard()"/></td>
@@ -103,8 +103,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			<table style="width: 100%; height: 10%">
 				<tr>
-					<td><input id="button35" type="button" value="PASS" onclick="callCard()"/></td>
-					<td><input id="button36" type="button" value="DOUBLE" onclick="callCard()"/></td>
+					<td><input id="button35" type="button" value="Pass" onclick="callCard()"/></td>
+					<td><input id="button36" type="button" value="Dbl" onclick="callCard()"/></td>
 					<td style="text-align: center; color: red"><span id="countdown">30</span><span>s</span></td>
 				</tr>
 			</table>

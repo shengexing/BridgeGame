@@ -12,15 +12,16 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>桥牌发牌页面</title>
+<title>单人桥牌叫牌游戏</title>
 
 <link href="./css/Licensing.css" type="text/css" rel="stylesheet"></link>
 
 <script type="text/javascript">
     	
-    	var current_player = 0;
-    	var count_ending = 0;
-    	var current_contract = "";
+    	var current_player = 0;		// 当前玩家的编号
+    	var count_ending = 0;		// 是否满足回合结束的条件
+    	var current_contract = "";	// 当前的定约结果
+    	var current_dbl = "";		// 当前的加倍结果
     	
     	/* 取得指定id的对象*/
 	    function getObj(id){
@@ -47,13 +48,18 @@
     
     	/* 玩家准备开始*/
     	function start() {
-    		document.getElementById("center_butStart").style.display="none";
-    		document.getElementById("but_licensing").style.display="block";
-    		document.getElementById("nameN").innerHTML="玩家1";
-    		document.getElementById("nameE").innerHTML="玩家1";
-    		document.getElementById("nameS").innerHTML="玩家1";
-    		document.getElementById("nameW").innerHTML="玩家1";
-    		document.getElementById("nameI").innerHTML="玩家1";
+    		getObj("center_butStart").style.display="none";
+    		getObj("center_licensing").style.display="block";
+    		getObj("nameN").innerHTML="玩家1";
+    		getObj("nameE").innerHTML="玩家1";
+    		getObj("nameS").innerHTML="玩家1";
+    		getObj("nameW").innerHTML="玩家1";
+    		getObj("nameI").innerHTML="玩家1";
+    	}
+    	
+    	/* 复位程序：玩家再来一局*/
+    	function reset() {
+    		window.location.reload();	// 刷新页面
     	}
     	
     	/* 运行倒计时方法*/
@@ -69,7 +75,9 @@
 				
 				// 判断定约结果是否确认
 				if(count_ending == 3) {
-					alert("定约结果已产生: " + current_contract); 
+					getObj("infContractValue").innerHTML = current_contract + current_dbl;
+					setButtonDisable(36);
+					getObj("center_butAgain").style.display="block";
 					window.setInterval(); 
 					return;
 				}
@@ -95,29 +103,37 @@
 			var but = e.target.id;
 			var butID = parseInt(but.substr(6, but.length - 1));
 			var value = e.target.value;
+			var but_Dbl = getObj("button36");
 			
-			if(butID == 35) { value = "--"; count_ending++; }
-			if(butID == 36) { value = "x2"; }
-			
+			if(butID == 35) {	// 点击的叫牌卡是：Pass
+				but_Dbl.value = "Dbl";
+				but_Dbl.disabled = true;
+				value = "--";
+				count_ending++; 
+			} else if(butID == 36) {	// 点击的叫牌卡是：Dbl/Rdbl
+				if(value == "Dbl") { value = "x"; current_dbl = "x"; e.target.value = "Rdbl";}
+				if(value == "Rdbl") { value = "xx"; current_dbl = "xx"; e.target.disabled = true;}
+				count_ending = 0;
+				} else { 	// 点击1梅花~7NT叫牌卡
+					but_Dbl.value = "Dbl"; but_Dbl.disabled = false;
+					current_contract = value; current_dbl = ""; count_ending = 0;
+				}
 			
 			var row = Math.floor(current_player / 4);
 			var col = current_player % 4;
 			var id = "DataTr" + row + "Td" + col;
-			document.getElementById(id).innerHTML = value;
+			getObj(id).innerHTML = value;
 			
-			if(butID < 35) current_contract = value;
-			
-			document.getElementById("countdown").innerHTML = 0;
-			setButtonDisable(butID);
+			getObj("countdown").innerHTML = 0;
+			if(butID < 35) setButtonDisable(butID);
 		}
 		
 		/* 设置按钮不能被按*/
 		function setButtonDisable(val) {
-			if(val < 35)
-				for(var i = val; i >= 0; i--) {
-					var b = document.getElementById("button" + i);	// 获取不能被按的按钮
-					b.disabled = true;	// 设置该按钮不能被按
-				}
+			for(var i = val; i >= 0; i--) {
+				var b = getObj("button" + i);	// 获取不能被按的按钮
+				b.disabled = true;	// 设置该按钮不能被按
+			}
 		}
 		
     
@@ -129,7 +145,7 @@
 				Poker.sortPlayerCards(i);
 			}%>
     		displayCardsN(); current_player = 0;
-    		document.getElementById("but_licensing").style.display="none";
+    		document.getElementById("center_licensing").style.display="none";
     		window.setInterval("runTime();", 1000);
     	}
     	
@@ -447,6 +463,8 @@
 
 		<div class="pos" id="Center" style="background-image: url('./picture/board.png');">
 			<input id="center_butStart" type="button" onclick="start();" value="准备">
+			<input id="center_licensing" type="button" onclick="licensing();" value="发牌">
+			<input id="center_butAgain" type="button" onclick="reset();" value="再来一局">
 
 			<!-- 当前的牌手的信息 -->
 			<div class="player" id="playerI">
@@ -501,17 +519,25 @@
 
 	</div>
 
-	<!-- 叫牌过程中需要的按钮 -->
+	<!-- 叫牌过程中需要显示的信息及按钮 -->
 	<div class="sop" id="but">
-		<button type="button" id="but_licensing"
-			onclick="javascript:licensing();">发牌</button>
+		<!-- 显示叫牌过程中的关键信息 -->
+		<div class="inf_class" id="inf_id">
+			<div id="inf_licensing">
+			
+			</div>
+			<div id="inf_contract">
+				<label id="infContractTitle">定约结果：</label>
+				<label id="infContractValue"></label>
+			</div>
+		</div>
+	
 		<div class="but_class" id="but_cards">
 			<jsp:include page="contractTable.jsp"></jsp:include>
 		</div>
 	</div>
 
-	<!-- 显示叫牌过程中的关键信息 -->
-	<div class="sop" id="inf"></div>
+	
 
 </body>
 

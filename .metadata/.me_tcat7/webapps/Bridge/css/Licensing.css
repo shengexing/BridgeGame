@@ -201,6 +201,23 @@
 	right: 120px;
 	bottom: 120px;
 }
+#center_licensing {
+	position: absolute;
+	left: 120px;
+	top: 120px;
+	right: 120px;
+	bottom: 120px;
+	display: none;
+}
+#center_butAgain {
+	position: absolute;
+	left: 110px;
+	top: 120px;
+	right: 110px;
+	bottom: 120px;
+	display: none;
+}
+
 #cardsI {
 	position: absolute;
 	left: 3px;
@@ -238,16 +255,6 @@
 
 #but {
 	left: 600px;
-	top: 0px;
-	width: 300px;
-	height: 600px;
-}
-#but_licensing {
-	display: none;
-}
-
-#inf {
-	left: 900px;
 	top: 0px;
 	width: 300px;
 	height: 600px;
