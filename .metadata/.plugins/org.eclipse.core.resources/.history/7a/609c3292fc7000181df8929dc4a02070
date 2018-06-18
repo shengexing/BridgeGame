@@ -1,0 +1,101 @@
+package util;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class DataBaseUtil {
+	
+	public Connection conn = null;          // 连接数据库的对象
+	public PreparedStatement pstmt = null;   // 执行SQL语句的对象
+	public ResultSet rs = null;         // 保存结果的结果集
+	
+	// 获得数据库的连接
+	public Connection getConn() {
+		
+		try {
+			// 加载驱动
+			Class.forName("com.mysql.jdbc.Driver");
+			// 获取连接
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bridge", "root", "11235813");
+			System.out.println("数据库连接成功！");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.err.println("数据库连接失败！");
+		}
+		
+		return conn;
+	}
+	
+	// 数据库的查询操作
+	public ResultSet exeSelect(String sql, Object[] params) {
+		// 获得数据库连接
+		conn = getConn();
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			if(params != null) {
+				
+				for(int i=0; i<params.length; i++)
+					pstmt.setObject(i+1, params[i]);
+			}
+			
+			rs = pstmt.executeQuery();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
+	// 数据库的增、删、改操作
+	public int exeUpdate(String sql, Object[] params) {
+		int num = 0;        
+		
+		conn = getConn();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			if(params != null) {
+				
+				for(int i=0; i<params.length; i++)
+					pstmt.setObject(i+1, params[i]);
+			}
+			
+			num = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return num;
+	}
+	
+	// 释放资源的操作
+	public void closeAll(ResultSet rs, PreparedStatement pstmt, Connection conn) {
+		try {
+			if(rs != null)
+				rs.close();
+			if(pstmt != null)
+				pstmt.close();
+			if(conn != null)
+				conn.close();
+			System.out.println("成功释放资源");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		BaseDao test = new BaseDao();
+		test.getConn();
+		test.closeAll(test.rs, test.pstmt, test.conn);
+	}
+
+}

@@ -1,0 +1,10 @@
+package dao;
+
+import entity.Player;
+
+public interface IGamesDao {
+	
+	// 保存一局游戏
+	public saveGame(Player[] player, Roun)
+
+}

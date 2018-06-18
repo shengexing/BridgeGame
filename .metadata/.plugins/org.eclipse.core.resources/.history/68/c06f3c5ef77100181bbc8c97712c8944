@@ -1,0 +1,41 @@
+package entity;
+
+import entity.playercontent.PlayerRole;
+import entity.tablecontent.TablePosition;
+
+/**
+ * 桥牌叫牌玩家类
+ * @author Time
+ *
+ */
+public class Player {
+	
+	
+	private int id;		// 桥牌叫牌玩家编号
+	private String name;	// 桥牌叫牌玩家的用户名
+	private int round_id;	// 桥牌叫牌回合的编号
+	private Card[] cards = new Card[13]; 	// 玩家的手牌
+	private String role;	// 玩家扮演的角色
+	
+	public Player() {
+		super();
+	}
+
+	public Player(int id, String name, int round_id, Card[] cards, String role) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.round_id = round_id;
+		this.cards = cards;
+		this.role = role;
+	}
+
+
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,38 @@
+package dao.impl;
+
+import util.DataBaseUtil;
+import dao.IRoundsDao;
+import entity.Round;
+
+public class RoundsDaoImpl extends DataBaseUtil implements IRoundsDao {
+
+	@Override
+	public boolean addRoundByID(Round round) {
+		
+		return false;
+	}
+
+	@Override
+	public boolean deleteRoundByID(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean updateRoundByID(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean selectRoundByID(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

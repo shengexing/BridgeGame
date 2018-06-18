@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+
+.upload{
+	padding-left: 10px; 
+	padding-right: 10px; 
+	padding-top: 5px; 
+	padding-bottom: 5px;
+	color: red;
+}
+
+.line{
+	
+}
+
+.load_font{
+	font-size: 20;
+	color: black;
+}
+
+body{
+	background: url(../picture/bg/index_bg.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-attachment: fixed;
+}
+
+.title{
+	color: aqua;
+	font-family: cursive;
+	font-size: 50;
+}

@@ -1,150 +1,66 @@
 package entity;
 
-import entity.cardcontent.CardColor;
-import entity.cardcontent.CardNumber;
-
 /**
- * ¶¨ÒåÆË¿ËÅÆ¿¨Æ¬µÄÊµÌåÀà
+ * æ‰‘å…‹ç‰Œå¡ç‰Œçš„ç±»
  * @author Time
  *
  */
 public class Card {
+	
+	private int code;			// å¡ç‰Œç¼–å·ï¼ˆ0~51ï¼‰
 
-	private CardNumber number;	// ÆË¿ËÅÆµÄµãÊı
-	private CardColor color;	// ÆË¿ËÅÆµÄ»¨É«
-	private int code;			// ÆË¿ËÅÆµÄ±àÂë
-
-	/**
-	 * CardµÄÈ±Ê¡¹¹Ôì·½·¨
-	 */
 	public Card() {
-		number = null; color = null; code = -1;
+		super();
 	}
 
 	public Card(int code) {
-		setCode(code);
+		super();
+		this.code = code;
 	}
+	
 
-	/**
-	 * CardµÄº¬²Î¹¹Ôì·½·¨
-	 * @param number ÆË¿ËÅÆµÄµãÊı
-	 * @param color ÆË¿ËÅÆµÄ»¨É«
-	 */
-	public Card(CardNumber number, CardColor color) {
-		this.number = number; this.color = color;
-	}
-
-	/**
-	 * »ñÈ¡CardµÄ³ÉÔ±±äÁ¿ number
-	 * @return CardµÄ³ÉÔ±±äÁ¿ number(CardNumber)
-	 */
-	public CardNumber getNumber() {
-		return number;
-	}
-
-	/**
-	 * ÉèÖÃCardµÄ³ÉÔ±±äÁ¿ number
-	 * @param number ÆË¿ËÅÆµÄµãÊı
-	 */
-	public void setNumber(CardNumber number) {
-		this.number = number;
-	}
-
-	/**
-	 * »ñÈ¡CardµÄ³ÉÔ±±äÁ¿ color
-	 * @return CardµÄ³ÉÔ±±äÁ¿ color(CardColor)
-	 */
-	public CardColor getColor() {
-		return color;
-	}
-
-	/**
-	 * ÉèÖÃCardµÄ³ÉÔ±±äÁ¿ color
-	 * @param color ÆË¿ËÅÆµÄ»¨É«
-	 */
-	public void setColor(CardColor color) {
-		this.color = color;
-	}
-
-	/**
-	 * »ñÈ¡CardµÄ³ÉÔ±±äÁ¿ code
-	 * @return CardµÄ³ÉÔ±±äÁ¿ code(int)
-	 */
 	public int getCode() {
 		return code;
 	}
 
-	/**
-	 * ÉèÖÃCardµÄ³ÉÔ±±äÁ¿ code
-	 * @param code ÆË¿ËÅÆµÄ±àÂë
-	 */
 	public void setCode(int code) {
 		this.code = code;
-
-		int number = code % 13, color = code % 4;	// ¸ù¾İÆË¿ËÅÆµÄ±àÂë¼ÆËãÆË¿ËÅÆµÄµãÊıºÍ»¨É«
-
-		/* Æ¥ÅäÆË¿ËÅÆµÄµãÊı*/
-		switch (number) {
-		case 0: setNumber(CardNumber.II); break;	// µãÊı2µÄ´úºÅÎª0
-		case 1: setNumber(CardNumber.III); break;	// µãÊı3µÄ´úºÅÎª1
-		case 2: setNumber(CardNumber.IV); break;	// µãÊı4µÄ´úºÅÎª2
-		case 3: setNumber(CardNumber.V); break;		// µãÊı5µÄ´úºÅÎª3
-		case 4: setNumber(CardNumber.VI); break;	// µãÊı6µÄ´úºÅÎª4
-		case 5: setNumber(CardNumber.VII); break;	// µãÊı7µÄ´úºÅÎª5
-		case 6: setNumber(CardNumber.VIII); break;	// µãÊı8µÄ´úºÅÎª6
-		case 7: setNumber(CardNumber.IX); break;	// µãÊı9µÄ´úºÅÎª7
-		case 8: setNumber(CardNumber.X); break;		// µãÊı10µÄ´úºÅÎª8
-		case 9: setNumber(CardNumber.J); break;		// µãÊıJµÄ´úºÅÎª9
-		case 10: setNumber(CardNumber.Q); break;	// µãÊıQµÄ´úºÅÎª10
-		case 11: setNumber(CardNumber.K); break;	// µãÊıKµÄ´úºÅÎª11
-		case 12: setNumber(CardNumber.A); break;	// µãÊıAµÄ´úºÅÎª12
-		default: break;
-		}
-
-		/* Æ¥ÅäÆË¿ËÅÆµÄ»¨É«*/
-		switch (color) {
-		case 0: setColor(CardColor.Clubs); break;		// Ã·»¨´úºÅÎª0
-		case 1: setColor(CardColor.Diamonds); break;	// ·½Æ¬´úºÅÎª1
-		case 2: setColor(CardColor.Hearts); break;		// ºìĞÄ´úºÅÎª2
-		case 3: setColor(CardColor.Spades); break;		// ºÚÌÒ´úºÅÎª3
-		default: break;
-		}
 	}
+	
 
 	@Override
 	public String toString() {
-		String result = "";
+		int c = code % 4, n = code % 13;
+		String color = "", number = "";
 		
-		int code = getCode(), number = code % 13, color = code % 4;
-		
-		/* Æ¥ÅäÆË¿ËÅÆµÄ»¨É«*/
-		switch (color) {
-		case 0: result += "Ã·»¨"; break;		// Ã·»¨´úºÅÎª0
-		case 1: result += "·½Æ¬"; break;		// ·½Æ¬´úºÅÎª1
-		case 2: result += "ºìĞÄ"; break;		// ºìĞÄ´úºÅÎª2
-		case 3: result += "ºÚÌÒ"; break;		// ºÚÌÒ´úºÅÎª3
-		default: break;
+		// åŒ¹é…æ‰‘å…‹ç‰Œçš„èŠ±è‰²
+		switch (c) {
+			case 0: color = "æ¢…èŠ±"; break;
+			case 1: color = "æ–¹ç‰‡"; break;
+			case 2: color = "çº¢æ¡ƒ"; break;
+			case 3: color = "é»‘æ¡ƒ"; break;
+			default: break;
 		}
 		
-		/* Æ¥ÅäÆË¿ËÅÆµÄµãÊı*/
-		switch (number) {
-		case 0: result += "2"; break;	// µãÊı2µÄ´úºÅÎª0
-		case 1: result += "3"; break;	// µãÊı3µÄ´úºÅÎª1
-		case 2: result += "4"; break;	// µãÊı4µÄ´úºÅÎª2
-		case 3: result += "5"; break;	// µãÊı5µÄ´úºÅÎª3
-		case 4: result += "6"; break;	// µãÊı6µÄ´úºÅÎª4
-		case 5: result += "7"; break;	// µãÊı7µÄ´úºÅÎª5
-		case 6: result += "8"; break;	// µãÊı8µÄ´úºÅÎª6
-		case 7: result += "9"; break;	// µãÊı9µÄ´úºÅÎª7
-		case 8: result += "10"; break;	// µãÊı10µÄ´úºÅÎª8
-		case 9: result += "J"; break;	// µãÊıJµÄ´úºÅÎª9
-		case 10: result += "Q"; break;	// µãÊıQµÄ´úºÅÎª10
-		case 11: result += "K"; break;	// µãÊıKµÄ´úºÅÎª11
-		case 12: result += "A"; break;	// µãÊıAµÄ´úºÅÎª12
+		// åŒ¹é…æ‰‘å…‹ç‰Œçš„ç‚¹æ•°
+		switch (n) {
+		case 0: number = "2"; break;
+		case 1: number = "3"; break;
+		case 2: number = "4"; break;
+		case 3: number = "5"; break;
+		case 4: number = "6"; break;
+		case 5: number = "7"; break;
+		case 6: number = "8"; break;
+		case 7: number = "9"; break;
+		case 8: number = "10"; break;
+		case 9: number = "J"; break;
+		case 10: number = "Q"; break;
+		case 11: number = "K"; break;
+		case 12: number = "A"; break;
 		default: break;
-		}
+	}
 		
-		return result;
+		return "Card[" + color + number + "]";
 	}
 
 	/**

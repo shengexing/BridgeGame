@@ -1,0 +1,60 @@
+package dao.impl;
+
+import java.util.List;
+
+import util.DataBaseUtil;
+import dao.IGamesDao;
+import entity.Contract;
+import entity.Player;
+import entity.Round;
+
+public class GamesDaoImpl extends DataBaseUtil implements IGamesDao {
+
+	@Override
+	public boolean saveGame(Player[] player, Round round,
+			List<Contract> contracts) {
+		boolean flag = false;
+		
+		// 执行的SQL语句
+		String sql_player = "INSERT INTO players(`name`, `round_id`, `cards`, `role`) VALUE(?, ?, ?, ?)";
+		String sql_round = "INSERT INTO round(`time`, `positionN`, `positionE`, `positionS`, `positionW`, `target`, `firstPlayer`, `banker`) VALUE(?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql_contract = "INSERT INTO contract(`round_id`, `row`, `callN`, `callE`, `callS`, `callW`) VALUE(?, ?, ?, ?, ?, ?)";
+		
+		conn = getConn();	// 获取数据库连接
+		try {
+			// 插入本局游戏回合
+			pstmt = conn.prepareStatement(sql_round);
+			Object[] params = {round.getTime(), round.getPositionN(), round.getPositionE(), round.getPositionS(), round.getPositionW(), round.getTarget(), round.getFirstPlayer(), round.getBanker()};
+			for(int j = 0; j < params.length; j++) pstmt.setObject(j + 1, params[j]);
+			pstmt.executeUpdate();
+			
+			// 插入四位玩家
+			for(int i = 0; i < player.length; i++) {
+				pstmt = conn.prepareStatement(sql_player);
+				Object[] param = {player[i].getName(), player[i].getRound_id(), player[i].getCards(), player[i].getRole()};
+				for(int j = 0; j < param.length; j++) pstmt.setObject(j + 1, param[j]);
+				pstmt.executeUpdate();
+			}
+			
+			// 插入叫牌回合记录
+			for(int i = 0; i < contracts.size(); i++) {
+				pstmt = conn.prepareStatement(sql_contract);
+				Object[] param = {};
+				for(int j = 0; j < param.length; j++) pstmt.setObject(j + 1, param[j]);
+				pstmt.executeUpdate();
+			}
+			
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return flag;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

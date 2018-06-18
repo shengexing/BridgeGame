@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" import="impl.*"
 	pageEncoding="utf-8"%>
+
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -21,6 +22,7 @@
     	var current_player = 0;		// 当前玩家的编号
     	var count_ending = 0;		// 是否满足回合结束的条件
     	var current_contract = "";	// 当前的定约结果
+    	var current_banker = "";	// 当前叫约定的玩家
     	var current_dbl = "";		// 当前的加倍结果
     	
     	/* 取得指定id的对象*/
@@ -76,6 +78,7 @@
 				// 判断定约结果是否确认
 				if(count_ending == 3) {
 					getObj("infContractValue").innerHTML = current_contract + current_dbl;
+					getObj("infBankerValue").innerHTML = current_banker == 0 ? "北" : current_banker == 1 ? "东" : current_banker == 2 ? "南" : "西";
 					setButtonDisable(36);
 					getObj("center_butAgain").style.display="block";
 					window.setInterval(); 
@@ -115,8 +118,10 @@
 				if(value == "Rdbl") { value = "xx"; current_dbl = "xx"; e.target.disabled = true;}
 				count_ending = 0;
 				} else { 	// 点击1梅花~7NT叫牌卡
+					if(current_contract == "") getObj("button36").style.display="block";
 					but_Dbl.value = "Dbl"; but_Dbl.disabled = false;
 					current_contract = value; current_dbl = ""; count_ending = 0;
+					current_banker = current_player % 4;
 				}
 			
 			var row = Math.floor(current_player / 4);
@@ -145,7 +150,7 @@
 				Poker.sortPlayerCards(i);
 			}%>
     		displayCardsN(); current_player = 0;
-    		document.getElementById("center_licensing").style.display="none";
+    		getObj("center_licensing").style.display="none";
     		window.setInterval("runTime();", 1000);
     	}
     	
@@ -159,16 +164,16 @@
     		// 设置北家牌手的牌面显示的图片
     		<%for (int i = 0; i < 13; i++) {
 				int codeN = Poker.getPokerN()[i].getCode(), numberN = codeN % 13, colorN = codeN % 4;%>
-				document.getElementById("img_cardsN<%=i%>").src="./picture/cards/north/<%=colorN%><%=numberN%>.JPG";
-				document.getElementById("img_cardsI<%=i%>").src="./picture/cards/south/<%=colorN%><%=numberN%>.JPG";
+				getObj("img_cardsN<%=i%>").src="./picture/cards/north/<%=colorN%><%=numberN%>.JPG";
+				getObj("img_cardsI<%=i%>").src="./picture/cards/south/<%=colorN%><%=numberN%>.JPG";
 			<%}%>
-			document.getElementById("positionI").innerHTML="北";
+			getObj("positionI").innerHTML="北";
 		}
 		
 		/* 隐藏北家的牌*/
     	function hideCardsN() {
     		<%for (int i = 0; i < 13; i++) {%>
-				document.getElementById("img_cardsN<%=i%>").src="./picture/cards/north/back.JPG";
+				getObj("img_cardsN<%=i%>").src="./picture/cards/north/back.JPG";
 			<%}%>
 		}
 		
@@ -182,16 +187,16 @@
     		// 设置东家牌手的牌面显示的图片
     		<%for (int i = 0; i < 13; i++) {
 				int codeE = Poker.getPokerE()[i].getCode(), numberE = codeE % 13, colorE = codeE % 4;%>
-				document.getElementById("img_cardsE<%=i%>").src="./picture/cards/east/<%=colorE%><%=numberE%>.JPG";
-				document.getElementById("img_cardsI<%=i%>").src="./picture/cards/south/<%=colorE%><%=numberE%>.JPG";
+				getObj("img_cardsE<%=i%>").src="./picture/cards/east/<%=colorE%><%=numberE%>.JPG";
+				getObj("img_cardsI<%=i%>").src="./picture/cards/south/<%=colorE%><%=numberE%>.JPG";
 			<%}%>
-			document.getElementById("positionI").innerHTML="东";
+			getObj("positionI").innerHTML="东";
 		}
 		
 		/* 隐藏东家的牌*/
     	function hideCardsE() {
     		<%for (int i = 0; i < 13; i++) {%>
-				document.getElementById("img_cardsE<%=i%>").src="./picture/cards/east/back.JPG";
+				getObj("img_cardsE<%=i%>").src="./picture/cards/east/back.JPG";
 			<%}%>
 		}
 		
@@ -205,16 +210,16 @@
     		// 设置南家牌手的牌面显示的图片
     		<%for (int i = 0; i < 13; i++) {
 				int codeS = Poker.getPokerS()[i].getCode(), numberS = codeS % 13, colorS = codeS % 4;%>
-				document.getElementById("img_cardsS<%=i%>").src="./picture/cards/south/<%=colorS%><%=numberS%>.JPG";
-				document.getElementById("img_cardsI<%=i%>").src="./picture/cards/south/<%=colorS%><%=numberS%>.JPG";
+				getObj("img_cardsS<%=i%>").src="./picture/cards/south/<%=colorS%><%=numberS%>.JPG";
+				getObj("img_cardsI<%=i%>").src="./picture/cards/south/<%=colorS%><%=numberS%>.JPG";
 			<%}%>
-			document.getElementById("positionI").innerHTML="南";
+			getObj("positionI").innerHTML="南";
 		}
 		
 		/* 隐藏南家的牌*/
     	function hideCardsS() {
     		<%for (int i = 0; i < 13; i++) {%>
-				document.getElementById("img_cardsS<%=i%>").src="./picture/cards/south/back.JPG";
+				getObj("img_cardsS<%=i%>").src="./picture/cards/south/back.JPG";
 			<%}%>
 		}
 		
@@ -228,16 +233,16 @@
     		// 设置西家牌手的牌面显示的图片
     		<%for (int i = 0; i < 13; i++) {
 				int codeW = Poker.getPokerW()[i].getCode(), numberW = codeW % 13, colorW = codeW % 4;%>
-				document.getElementById("img_cardsW<%=i%>").src="./picture/cards/west/<%=colorW%><%=numberW%>.JPG";
-				document.getElementById("img_cardsI<%=i%>").src="./picture/cards/south/<%=colorW%><%=numberW%>.JPG";
+				getObj("img_cardsW<%=i%>").src="./picture/cards/west/<%=colorW%><%=numberW%>.JPG";
+				getObj("img_cardsI<%=i%>").src="./picture/cards/south/<%=colorW%><%=numberW%>.JPG";
 			<%}%>
-			document.getElementById("positionI").innerHTML="西";
+			getObj("positionI").innerHTML="西";
 		}
 		
 		/* 隐藏西家的牌*/
     	function hideCardsW() {
     		<%for (int i = 0; i < 13; i++) {%>
-				document.getElementById("img_cardsW<%=i%>").src="./picture/cards/west/back.JPG";
+				getObj("img_cardsW<%=i%>").src="./picture/cards/west/back.JPG";
 			<%}%>
 		}
 		
@@ -246,6 +251,7 @@
 </head>
 
 <body>
+
 	<div class="sop" id="main">
 
 		<!-- 北边的牌手 -->
@@ -529,6 +535,8 @@
 			<div id="inf_contract">
 				<label id="infContractTitle">定约结果：</label>
 				<label id="infContractValue"></label>
+				<label id="infBankerTitle">庄家：</label>
+				<label id="infBankerValue"></label>
 			</div>
 		</div>
 	
@@ -536,8 +544,6 @@
 			<jsp:include page="contractTable.jsp"></jsp:include>
 		</div>
 	</div>
-
-	
 
 </body>
 

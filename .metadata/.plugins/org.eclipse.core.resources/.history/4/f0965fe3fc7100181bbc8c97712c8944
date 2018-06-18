@@ -1,0 +1,11 @@
+package entity;
+
+/**
+ * 公告信息类
+ * @author Time
+ *
+ */
+public class Note {
+	
+
+}

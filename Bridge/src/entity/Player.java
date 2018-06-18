@@ -1,85 +1,81 @@
 package entity;
 
-import entity.playercontent.PlayerRole;
-import entity.tablecontent.TablePosition;
+import java.util.Arrays;
 
 /**
- * ¶¨ÒåÅÆÊÖµÄÊµÌåÀà
+ * æ¡¥ç‰Œå«ç‰Œç©å®¶ç±»
  * @author Time
  *
  */
 public class Player {
 	
-	private final static int player_card_num = 13;	// Ã¿Î»ÅÆÊÖµÄÊÖÅÆ¶¨ÒåÎª13ÕÅ
 	
-	private TablePosition position;		// ÅÆÊÖ×øµÄÎ»ÖÃ
-	private Card[] cards = new Card[13]; 	// ÅÆÊÖµÄÊÖÅÆ
-	private PlayerRole role;	// ÅÆÊÖ°çÑİµÄ½ÇÉ«
+	private int id;		// æ¡¥ç‰Œå«ç‰Œç©å®¶ç¼–å·
+	private String name;	// æ¡¥ç‰Œå«ç‰Œç©å®¶çš„ç”¨æˆ·å
+	private int round_id;	// æ¡¥ç‰Œå«ç‰Œå›åˆçš„ç¼–å·
+	private Card[] cards = new Card[13]; 	// ç©å®¶çš„æ‰‹ç‰Œ
+	private String role;	// ç©å®¶æ‰®æ¼”çš„è§’è‰²
 	
-	/**
-	 * 
-	 * @return
-	 */
-	public TablePosition getPosition() {
-		return position;
+	public Player() {
+		super();
 	}
 
-	/**
-	 * 
-	 * @param position
-	 */
-	public void setPosition(TablePosition position) {
-		this.position = position;
+	public Player(int id, String name, int round_id, Card[] cards, String role) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.round_id = round_id;
+		this.cards = cards;
+		this.role = role;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getRound_id() {
+		return round_id;
+	}
+
+	public void setRound_id(int round_id) {
+		this.round_id = round_id;
+	}
+
 	public Card[] getCards() {
 		return cards;
 	}
 
-	/**
-	 * 
-	 * @param card
-	 */
 	public void setCards(Card[] cards) {
 		this.cards = cards;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
-	public PlayerRole getRole() {
+	public String getRole() {
 		return role;
 	}
 
-	/**
-	 * 
-	 * @param role
-	 */
-	public void setRole(PlayerRole role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public static int getPlayerCardNum() {
-		return player_card_num;
-	}
-
-
-	/**
-	 * PlayerµÄÈ±Ê¡¹¹Ôì·½·¨
-	 */
-	public Player() {
-		
-	}
 	
+
+	@Override
+	public String toString() {
+		return "Player [id=" + id + ", name=" + name + ", round_id=" + round_id
+				+ ", cards=" + Arrays.toString(cards) + ", role=" + role + "]";
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

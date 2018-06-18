@@ -1,0 +1,39 @@
+package entity;
+
+/**
+ * 扑克牌卡牌的类
+ * @author Time
+ *
+ */
+public class Card {
+	
+	private int code;			// 卡牌编号（0~51）
+
+	public Card() {
+		super();
+	}
+
+	public Card(int code) {
+		super();
+		this.code = code;
+	}
+	
+
+	public int getCode() {
+		return code;
+	}
+
+	public void setCode(int code) {
+		this.code = code;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

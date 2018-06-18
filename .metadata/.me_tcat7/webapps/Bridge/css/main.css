@@ -1,0 +1,19 @@
+/* index.jsp页面上部的样式*/
+#main_top {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 1260px;
+	height: 80px;
+	background-image: url(../picture/bg/mainTop_bg.PNG);
+}
+
+/*  index.jsp页面下部的样式*/
+#main_bottom {
+	position: absolute;
+	left: 0px;
+	top: 80px;
+	width: 1260px;
+	height: 610px;
+	background-image: url(../picture/bg/mainBottom_bg.jpg);
+}

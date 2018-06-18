@@ -1,0 +1,39 @@
+<%@page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>My JSP 'mainTop.jsp' starting page</title>
+    
+    <script type="text/javascript">
+    	window.href = ""
+    </script>
+
+  </head>
+  
+  <body>
+  
+  	<div id="inf" style="position: absolute; width: 1260px; height: 70px;">
+	  	<div class="inf" id="webInf" style="position: absolute; left: 0px; top: 0px">
+	  		<label style="font: italic; font-family: cursive; font-size: 35px; color: blue; background-color: fuchsia;">桥牌叫牌练习网站</label>
+	  	</div>
+	  	
+	  	<div class="inf" id="userInf">
+	  		<label id="label_userInf">${sessionScope.nowUser.getName()}，你好</label>
+	  	</div>
+	  	
+	  	<div class="inf" id="toolInf" style="position: absolute; left: 0px; bottom: 0px;">
+	  		<a href="jsp/admin/mainBottom.jsp" target="bottom"><label style="font: italic; font-family: cursive; font-size: 25px; color: purple; background-color: threedshadow;">首页</label></a>
+	  		<a href="logout"><img alt="注销" title="注销" src="./picture/logout.PNG" style="position: absolute; right: 10px; bottom: 2px;"></a>
+	  	</div>
+	 </div>
+	 
+  </body>
+  
+</html>

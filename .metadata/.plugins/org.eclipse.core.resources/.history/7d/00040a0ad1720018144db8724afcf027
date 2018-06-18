@@ -1,0 +1,26 @@
+package biz;
+
+import java.util.List;
+import java.util.Map;
+
+import entity.Users;
+
+public interface IUsersBiz {
+	// 获取所有用户
+	public List<String> getAllUsersName();
+	
+	// 获取用户登录信息
+	public Map<String, String> getAllUserLoginInfo();
+
+	// 查询用户
+	public Users selectUserByName(String name);
+
+	// 添加用户
+	public boolean addUser(Users u);
+
+	// 修改密码
+	public boolean updatePassword(Users u);
+
+	// 修改用户信息
+	public boolean updateUserByName(Users u, String name);
+}

@@ -1,0 +1,154 @@
+package entity;
+
+/**
+ * 扑克牌卡牌的类
+ * @author Time
+ *
+ */
+public class Card {
+	
+	private int code;			// 卡牌编号
+
+	/**
+	 * Card��ȱʡ���췽��
+	 */
+	public Card() {
+		number = null; color = null; code = -1;
+	}
+
+	public Card(int code) {
+		setCode(code);
+	}
+
+	/**
+	 * Card�ĺ��ι��췽��
+	 * @param number �˿��Ƶĵ���
+	 * @param color �˿��ƵĻ�ɫ
+	 */
+	public Card(CardNumber number, CardColor color) {
+		this.number = number; this.color = color;
+	}
+
+	/**
+	 * ��ȡCard�ĳ�Ա���� number
+	 * @return Card�ĳ�Ա���� number(CardNumber)
+	 */
+	public CardNumber getNumber() {
+		return number;
+	}
+
+	/**
+	 * ����Card�ĳ�Ա���� number
+	 * @param number �˿��Ƶĵ���
+	 */
+	public void setNumber(CardNumber number) {
+		this.number = number;
+	}
+
+	/**
+	 * ��ȡCard�ĳ�Ա���� color
+	 * @return Card�ĳ�Ա���� color(CardColor)
+	 */
+	public CardColor getColor() {
+		return color;
+	}
+
+	/**
+	 * ����Card�ĳ�Ա���� color
+	 * @param color �˿��ƵĻ�ɫ
+	 */
+	public void setColor(CardColor color) {
+		this.color = color;
+	}
+
+	/**
+	 * ��ȡCard�ĳ�Ա���� code
+	 * @return Card�ĳ�Ա���� code(int)
+	 */
+	public int getCode() {
+		return code;
+	}
+
+	/**
+	 * ����Card�ĳ�Ա���� code
+	 * @param code �˿��Ƶı���
+	 */
+	public void setCode(int code) {
+		this.code = code;
+
+		int number = code % 13, color = code % 4;	// ����˿��Ƶı�������˿��Ƶĵ���ͻ�ɫ
+
+		/* ƥ���˿��Ƶĵ���*/
+		switch (number) {
+		case 0: setNumber(CardNumber.II); break;	// ����2�Ĵ��Ϊ0
+		case 1: setNumber(CardNumber.III); break;	// ����3�Ĵ��Ϊ1
+		case 2: setNumber(CardNumber.IV); break;	// ����4�Ĵ��Ϊ2
+		case 3: setNumber(CardNumber.V); break;		// ����5�Ĵ��Ϊ3
+		case 4: setNumber(CardNumber.VI); break;	// ����6�Ĵ��Ϊ4
+		case 5: setNumber(CardNumber.VII); break;	// ����7�Ĵ��Ϊ5
+		case 6: setNumber(CardNumber.VIII); break;	// ����8�Ĵ��Ϊ6
+		case 7: setNumber(CardNumber.IX); break;	// ����9�Ĵ��Ϊ7
+		case 8: setNumber(CardNumber.X); break;		// ����10�Ĵ��Ϊ8
+		case 9: setNumber(CardNumber.J); break;		// ����J�Ĵ��Ϊ9
+		case 10: setNumber(CardNumber.Q); break;	// ����Q�Ĵ��Ϊ10
+		case 11: setNumber(CardNumber.K); break;	// ����K�Ĵ��Ϊ11
+		case 12: setNumber(CardNumber.A); break;	// ����A�Ĵ��Ϊ12
+		default: break;
+		}
+
+		/* ƥ���˿��ƵĻ�ɫ*/
+		switch (color) {
+		case 0: setColor(CardColor.Clubs); break;		// ÷�����Ϊ0
+		case 1: setColor(CardColor.Diamonds); break;	// ��Ƭ���Ϊ1
+		case 2: setColor(CardColor.Hearts); break;		// ���Ĵ��Ϊ2
+		case 3: setColor(CardColor.Spades); break;		// ���Ҵ��Ϊ3
+		default: break;
+		}
+	}
+
+	@Override
+	public String toString() {
+		String result = "";
+		
+		int code = getCode(), number = code % 13, color = code % 4;
+		
+		/* ƥ���˿��ƵĻ�ɫ*/
+		switch (color) {
+		case 0: result += "÷��"; break;		// ÷�����Ϊ0
+		case 1: result += "��Ƭ"; break;		// ��Ƭ���Ϊ1
+		case 2: result += "����"; break;		// ���Ĵ��Ϊ2
+		case 3: result += "����"; break;		// ���Ҵ��Ϊ3
+		default: break;
+		}
+		
+		/* ƥ���˿��Ƶĵ���*/
+		switch (number) {
+		case 0: result += "2"; break;	// ����2�Ĵ��Ϊ0
+		case 1: result += "3"; break;	// ����3�Ĵ��Ϊ1
+		case 2: result += "4"; break;	// ����4�Ĵ��Ϊ2
+		case 3: result += "5"; break;	// ����5�Ĵ��Ϊ3
+		case 4: result += "6"; break;	// ����6�Ĵ��Ϊ4
+		case 5: result += "7"; break;	// ����7�Ĵ��Ϊ5
+		case 6: result += "8"; break;	// ����8�Ĵ��Ϊ6
+		case 7: result += "9"; break;	// ����9�Ĵ��Ϊ7
+		case 8: result += "10"; break;	// ����10�Ĵ��Ϊ8
+		case 9: result += "J"; break;	// ����J�Ĵ��Ϊ9
+		case 10: result += "Q"; break;	// ����Q�Ĵ��Ϊ10
+		case 11: result += "K"; break;	// ����K�Ĵ��Ϊ11
+		case 12: result += "A"; break;	// ����A�Ĵ��Ϊ12
+		default: break;
+		}
+		
+		return result;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

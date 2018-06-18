@@ -1,0 +1,47 @@
+package biz.impl;
+
+import java.util.List;
+
+import dao.IUsersDao;
+import dao.impl.UsersDaoImpl;
+import entity.Users;
+import biz.IUsersBiz;
+
+public class UsersBizImpl implements IUsersBiz {
+
+	// 注入数据表示层
+	IUsersDao udao = new UsersDaoImpl();
+
+	@Override
+	public List<String> getAllUsersName() {
+		return udao.getAllUsersName();
+	}
+
+	@Override
+	public Users selectUserByName(String name) {
+		return udao.selectUserByName(name);
+	}
+
+	@Override
+	public boolean addUser(Users u) {
+		return udao.addUser(u);
+	}
+
+	@Override
+	public boolean updatePassword(Users u) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean updateUserByName(Users u, String name) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

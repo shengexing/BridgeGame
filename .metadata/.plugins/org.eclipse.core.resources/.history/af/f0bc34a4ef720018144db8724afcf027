@@ -1,0 +1,7 @@
+package dao;
+
+public interface IGamesDao {
+	
+	// 保存一局游戏
+
+}

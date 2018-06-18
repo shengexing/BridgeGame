@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy/>
+<typeInfoHistroy>
+<typeInfo handle="=Bridge/src&lt;dao{IUsersDao.java[IUsersDao" modifiers="513" timestamp="1529312272264"/>
+<typeInfo handle="=Bridge/src&lt;biz{IUsersBiz.java[IUsersBiz" modifiers="513" timestamp="1529312293058"/>
+<typeInfo handle="=Bridge/src&lt;dao{IRoundsDao.java[IRoundsDao" modifiers="513" timestamp="1529322613334"/>
+<typeInfo handle="=Bridge/src&lt;dao{IGamesDao.java[IGamesDao" modifiers="513" timestamp="1529323606318"/>
+</typeInfoHistroy>

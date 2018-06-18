@@ -1,0 +1,149 @@
+package entity;
+
+/**
+ * 系统的用户信息，对应于bridge数据库中的users表
+ * 建表语句如下：
+ */
+
+/*CREATE TABLE `users` (
+  `name` varchar(45) NOT NULL COMMENT '用户名',
+  `password` varchar(20) NOT NULL DEFAULT '123456' COMMENT '用户的密码',
+  `indentity` int(11) NOT NULL DEFAULT '1' COMMENT '用户的身份，0：管理员；1：普通用户',
+  `phone_number` varchar(11) NOT NULL COMMENT '用户的手机号',
+  `address` varchar(45) NOT NULL DEFAULT '上海' COMMENT '用户的地址',
+  `rank` varchar(2) NOT NULL DEFAULT '新手' COMMENT '用户的级别',
+  PRIMARY KEY (`name`),
+  UNIQUE KEY `phone_number_UNIQUE` (`phone_number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='桥牌游戏的用户表';
+*/
+
+public class Users {
+	
+	private String name;                         // 用户名
+	private String password = "123456";      // 密码默认为“123456”
+	private int indentity = 1;         // 角色默认为普通用户
+	private int logged = 0;				// 用户默认为未登录
+	private String phone_number;		// 用户的手机号
+	private String address = "上海";		// 地址默认为“上海”
+	private String rank = "新手";			// 用户的级别默认为“新手”
+	
+	
+
+	public Users() {
+		super();
+	}
+
+
+
+	public Users(String name, String password, int indentity,
+			String phone_number, String address, String rank) {
+		super();
+		this.name = name;
+		this.password = password;
+		this.indentity = indentity;
+		this.phone_number = phone_number;
+		this.address = address;
+		this.rank = rank;
+	}
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+
+	public int getIndentity() {
+		return indentity;
+	}
+
+
+
+	public void setIndentity(int indentity) {
+		this.indentity = indentity;
+	}
+
+
+
+	public int getLogged() {
+		return logged;
+	}
+
+
+
+	public void setLogged(int logged) {
+		this.logged = logged;
+	}
+
+
+
+	public String getPhone_number() {
+		return phone_number;
+	}
+
+
+
+	public void setPhone_number(String phone_number) {
+		this.phone_number = phone_number;
+	}
+
+
+
+	public String getAddress() {
+		return address;
+	}
+
+
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+
+
+	public String getRank() {
+		return rank;
+	}
+
+
+
+	public void setRank(String rank) {
+		this.rank = rank;
+	}
+
+	
+
+	@Override
+	public String toString() {
+		return "Users [name=" + name + ", password=" + password
+				+ ", indentity=" + indentity + ", logged=" + logged + ", phone_number=" + phone_number
+				+ ", address=" + address + ", rank=" + rank + "]";
+	}
+
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

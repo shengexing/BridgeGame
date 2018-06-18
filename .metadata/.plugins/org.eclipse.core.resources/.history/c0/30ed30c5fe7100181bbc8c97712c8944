@@ -1,0 +1,19 @@
+package entity;
+
+import java.util.List;
+
+/**
+ * 完整叫牌回合中一个小的叫牌回合的类
+ * @author Time
+ *
+ */
+public class Contract {
+	
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

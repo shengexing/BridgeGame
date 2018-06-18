@@ -1,0 +1,9 @@
+package dao;
+
+public interface IRoundsDao {
+	
+	// 添加叫牌游戏回合
+	
+	// 删除叫牌游戏回合
+
+}

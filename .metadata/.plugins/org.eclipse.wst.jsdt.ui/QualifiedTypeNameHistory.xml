@@ -2,4 +2,6 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="Attr"/>
 <fullyQualifiedTypeName name="Math"/>
+<fullyQualifiedTypeName name="Comment"/>
+<fullyQualifiedTypeName name="TypeError"/>
 </qualifiedTypeNameHistroy>

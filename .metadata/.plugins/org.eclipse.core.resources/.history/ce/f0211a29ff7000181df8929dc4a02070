@@ -1,0 +1,15 @@
+package dao;
+
+public interface IUsersDao {
+	// 获取所有用户
+	public List<Integer> getAllUserID();
+
+	// 查询用户
+	public User selectUserByID(int id);
+
+	// 添加用户
+	public boolean addUser(User u);
+
+	// 修改密码
+	public boolean updatePassword(User u);	
+}

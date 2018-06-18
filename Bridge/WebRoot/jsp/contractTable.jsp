@@ -104,7 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<table style="width: 100%; height: 10%">
 				<tr>
 					<td><input id="button35" type="button" value="Pass" onclick="callCard()"/></td>
-					<td><input id="button36" type="button" value="Dbl" onclick="callCard()"/></td>
+					<td><input id="button36" type="button" style="display: none" value="Dbl" onclick="callCard()"/></td>
 					<td style="text-align: center; color: red"><span id="countdown">30</span><span>s</span></td>
 				</tr>
 			</table>

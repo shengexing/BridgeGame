@@ -1,0 +1,32 @@
+package entity;
+
+/**
+ * 扑克牌卡牌的类
+ * @author Time
+ *
+ */
+public class Card {
+	
+	private int code;			// 卡牌编号
+
+	public Card() {
+		super();
+	}
+
+	public Card(int code) {
+		super();
+		this.code = code;
+	}
+
+
+
+	/**
+	 * 
+	 * @return
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

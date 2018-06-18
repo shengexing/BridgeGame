@@ -1,0 +1,9 @@
+package dao;
+
+public interface IRoundsDao {
+	
+	// 添加叫牌记录
+	
+	// 删除叫牌记录
+
+}

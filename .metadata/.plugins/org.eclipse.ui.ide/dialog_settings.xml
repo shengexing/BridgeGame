@@ -5,6 +5,7 @@
 		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="G:\Java\HR_Info"/>
 			<item value="F:\Code\MyEclipse Professional 2014\Bridge"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">

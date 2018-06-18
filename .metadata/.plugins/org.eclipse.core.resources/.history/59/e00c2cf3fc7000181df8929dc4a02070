@@ -1,0 +1,25 @@
+package entity;
+
+/**
+ * 系统的用户信息，对应于bridge数据库中的users表
+ * 建表语句如下：
+ */
+
+/*CREATE TABLE `hr_info`.`users` (
+		`uid` INT NOT NULL AUTO_INCREMENT,
+		`id` VARCHAR(10) NOT NULL,
+		`password` VARCHAR(20) NOT NULL DEFAULT '123456',
+		`role` INT(1) NOT NULL DEFAULT '0',
+		PRIMARY KEY (`uid`),
+		CONSTRAINT `ufk`
+		FOREIGN KEY (`id`)
+		REFERENCES `hr_info`.`employees` (`id`));*/
+
+public class Users {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

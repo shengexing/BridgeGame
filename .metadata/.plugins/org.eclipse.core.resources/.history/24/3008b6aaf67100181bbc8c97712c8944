@@ -1,0 +1,90 @@
+package entity;
+
+import entity.playercontent.PlayerRole;
+import entity.tablecontent.TablePosition;
+
+/**
+ * �������ֵ�ʵ����
+ * @author Time
+ *
+ */
+public class Player {
+	
+	private final static int player_card_num = 13;	// ÿλ���ֵ����ƶ���Ϊ13��
+	
+	private int id;		// 桥牌叫牌玩家编号
+	private TablePosition position;		// �������λ��
+	private Card[] cards = new Card[13]; 	// ���ֵ�����
+	private PlayerRole role;	// ���ְ��ݵĽ�ɫ
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public TablePosition getPosition() {
+		return position;
+	}
+
+	/**
+	 * 
+	 * @param position
+	 */
+	public void setPosition(TablePosition position) {
+		this.position = position;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public Card[] getCards() {
+		return cards;
+	}
+
+	/**
+	 * 
+	 * @param card
+	 */
+	public void setCards(Card[] cards) {
+		this.cards = cards;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public PlayerRole getRole() {
+		return role;
+	}
+
+	/**
+	 * 
+	 * @param role
+	 */
+	public void setRole(PlayerRole role) {
+		this.role = role;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public static int getPlayerCardNum() {
+		return player_card_num;
+	}
+
+
+	/**
+	 * Player��ȱʡ���췽��
+	 */
+	public Player() {
+		
+	}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -4,21 +4,21 @@ import java.util.Random;
 import entity.Card;
 
 /**
- * ¶¨ÒåÄ£ÄâÇÅÅÆ½ĞÅÆ»ØºÏµÄÀà
+ * å«ç‰Œå›åˆä¿¡æ¯çš„ç±»
  * @author Time
  *
  */
 public class Poker {
 	
-	static Card[] pokerN = new Card[13];	//±±¼ÒµÄÅÆ  
-	static Card[] pokerE = new Card[13];	//¶«¼ÒµÄÅÆ  
-	static Card[] pokerS = new Card[13];	//ÄÏ¼ÒµÄÅÆ  
-	static Card[] pokerW = new Card[13];	//Î÷¼ÒµÄÅÆ  
-	static Card[] pokerALL = new Card[52];	//52ÕÅÅÆ
+	static Card[] pokerN = new Card[13];	// åŒ—å®¶çš„æ‰‹ç‰Œ
+	static Card[] pokerE = new Card[13];	// ä¸œå®¶çš„æ‰‹ç‰Œ
+	static Card[] pokerS = new Card[13];	// å—å®¶çš„æ‰‹ç‰Œ
+	static Card[] pokerW = new Card[13];	// è¥¿å®¶çš„æ‰‹ç‰Œ
+	static Card[] pokerALL = new Card[52];	// 52å¼ æ‰‘å…‹ç‰Œ
 	
 	
 	/**
-	 * ÉèÖÃGet&Set·½·¨
+	 * Poker çš„ GET&SET æ–¹æ³•
 	 * @return
 	 */
 	public static Card[] getPokerN() {
@@ -62,7 +62,7 @@ public class Poker {
 	}
 
 	/**
-	 * ³õÊ¼»¯52ÕÅÆË¿ËÅÆ
+	 * åˆå§‹åŒ–52å¼ æ‰‘å…‹ç‰Œ
 	 */
 	static {
 		for(int i = 0; i < 52; i++) {
@@ -71,7 +71,7 @@ public class Poker {
 	}
 	
 	/**
-	 * Êä³öÈ«²¿µÄÅÆ
+	 * æ‰“å°æ‰€æœ‰çš„æ‰‘å…‹ç‰Œ
 	 */
 	public static void printALLCards() {
 		for(int i = 0; i < 52; i++) {
@@ -81,49 +81,49 @@ public class Poker {
 	}
 	
 	/**
-	 * Êä³öÍæ¼ÒµÄÅÆ
-	 * @param position Íæ¼ÒµÄÎ»ÖÃ£¬0£º±±¡¢1£º¶«¡¢2£ºÄÏ¡¢3£ºÎ÷
+	 * æ‰“å°ç©å®¶çš„æ‰‹ç‰Œ
+	 * @param position ç©å®¶çš„ä½ç½®
 	 */
 	public static void printPlayerCards(int position) {
-		/* Êä³ö±±¼ÒµÄÊÖÅÆ*/
+		/* æ‰“å°åŒ—å®¶çš„æ‰‹ç‰Œ*/
 		if(position == 0) {
-			System.out.print("±±¼ÒµÄÊÖÅÆ£º");
+			System.out.print("åŒ—å®¶çš„æ‰‹ç‰Œï¼š");
 			for(int i = 0; i < 13; i++) System.out.print(pokerN[i].toString() + "  ");
 			System.out.println();
 		}
 			
-		/* Êä³ö¶«¼ÒµÄÊÖÅÆ*/
+		/* æ‰“å°ä¸œå®¶çš„æ‰‹ç‰Œ*/
 		if(position == 1) {
-			System.out.print("¶«¼ÒµÄÊÖÅÆ£º");
+			System.out.print("ä¸œå®¶çš„æ‰‹ç‰Œï¼š");
 			for(int i = 0; i < 13; i++) System.out.print(pokerE[i].toString() + "  ");
 			System.out.println();
 		}
 		
-		/* Êä³öÄÏ¼ÒµÄÊÖÅÆ*/
+		/* æ‰“å°å—å®¶çš„æ‰‹ç‰Œ*/
 		if(position == 2) {
-			System.out.print("ÄÏ¼ÒµÄÊÖÅÆ£º");
+			System.out.print("å—å®¶çš„æ‰‹ç‰Œï¼š");
 			for(int i = 0; i < 13; i++) System.out.print(pokerS[i].toString() + "  ");
 			System.out.println();
 		}
 		
-		/* Êä³öÎ÷¼ÒµÄÊÖÅÆ*/
+		/* æ‰“å°è¥¿å®¶çš„æ‰‹ç‰Œ*/
 		if(position == 3) {
-			System.out.print("Î÷¼ÒµÄÊÖÅÆ£º");
+			System.out.print("è¥¿å®¶çš„æ‰‹ç‰Œï¼š");
 			for(int i = 0; i < 13; i++) System.out.print(pokerW[i].toString() + "  ");
 			System.out.println();
 		}
 	}
 	
 	/**
-	 * Ï´ÅÆµÄ·½·¨
+	 * æ´—ç‰Œçš„å‡½æ•°
 	 * @param args
 	 */
 	public static void shuffle() {
         Random random = new Random();
         
-        /* Ï´ÅÆ*/
+        /* æ´—ç‰Œçš„å¾ªç¯*/
         for(int i = 0;i < 52;i++) {
-            int index = random.nextInt(52);	// index ÎªĞÂÉú³ÉµÄËæ»ú±àÂë
+            int index = random.nextInt(52);	// index äº§ç”Ÿ0~51ä¹‹é—´çš„éšæœºæ•°
             int code_i = pokerALL[i].getCode(), code_index = pokerALL[index].getCode();
             pokerALL[i].setCode(code_index);
             pokerALL[index].setCode(code_i);
@@ -131,13 +131,13 @@ public class Poker {
 	}
 	
 	/**
-	 * ·¢ÅÆµÄ·½·¨
-	 * @param position ·¢ÅÆµÄË³Ğò£¬0£ºÏÈ·¢±±¡¢1£ºÏÈ·¢¶«¡¢2£ºÏÈ·¢ÄÏ¡¢3£ºÏÈ·¢Î÷
+	 * å‘ç‰Œçš„æ–¹æ³•
+	 * @param position å…ˆå‘ç‰Œç©å®¶çš„ä½ç½®
 	 */
 	public static void licensing(int position) {
-		shuffle();	// ·¢ÅÆÖ®Ç°ÏÈÏ´ÅÆ
+		shuffle();	// å‘ç‰Œä¹‹å‰å…ˆæ´—ç‰Œ
 		
-		/* ÏÈ¸ø±±¼Ò·¢ÅÆ*/
+		/* å…ˆç»™åŒ—å®¶å‘ç‰Œ*/
 		if(position == 0)
 			for(int i = 0; i < 13; i++) {
 				pokerN[i] = pokerALL[i * 4];
@@ -146,7 +146,7 @@ public class Poker {
 				pokerW[i] = pokerALL[i * 4 + 3];
 			}
 		
-		/* ÏÈ¸ø¶«¼Ò·¢ÅÆ*/
+		/* å…ˆç»™ä¸œå®¶å‘ç‰Œ*/
 		if(position == 1)
 			for(int i = 0; i < 13; i++) {
 				pokerE[i] = pokerALL[i * 4];
@@ -155,7 +155,7 @@ public class Poker {
 				pokerN[i] = pokerALL[i * 4 + 3];
 			}
 		
-		/* ÏÈ¸øÄÏ¼Ò·¢ÅÆ*/
+		/* å…ˆç»™å—å®¶å‘ç‰Œ*/
 		if(position == 2)
 			for(int i = 0; i < 13; i++) {
 				pokerS[i] = pokerALL[i * 4];
@@ -164,7 +164,7 @@ public class Poker {
 				pokerE[i] = pokerALL[i * 4 + 3];
 			}
 		
-		/* ÏÈ¸øÎ÷¼Ò·¢ÅÆ*/
+		/* å…ˆç»™è¥¿å®¶å‘ç‰Œ*/
 		if(position == 3)
 			for(int i = 0; i < 13; i++) {
 				pokerW[i] = pokerALL[i * 4];
@@ -176,31 +176,31 @@ public class Poker {
 	}
 	
 	/**
-	 * ÕûÀíÍæ¼ÒµÄÊÖÅÆ
-	 * @param position Íæ¼ÒµÄÎ»ÖÃ£¬0£º±±¡¢1£º¶«¡¢2£ºÄÏ¡¢3£ºÎ÷
+	 * æ•´ç†ç©å®¶çš„æ‰‹ç‰Œ
+	 * @param position ç©å®¶çš„ä½ç½®
 	 */
 	public static void sortPlayerCards(int position) {
-		/* ÕûÀí±±¼ÒµÄÅÆ*/
+		/* æ•´ç†åŒ—å®¶çš„æ‰‹ç‰Œ*/
 		if(position == 0) sortCards(pokerN);
 		
-		/* ÕûÀí¶«¼ÒµÄÅÆ*/
+		/* æ•´ç†ä¸œå®¶çš„æ‰‹ç‰Œ*/
 		if(position == 1) sortCards(pokerE);
 		
-		/* ÕûÀíÄÏ¼ÒµÄÅÆ*/
+		/* æ•´ç†å—å®¶çš„æ‰‹ç‰Œ*/
 		if(position == 2) sortCards(pokerS);
 		
-		/* ÕûÀíÎ÷¼ÒµÄÅÆ*/
+		/* æ•´ç†è¥¿å®¶çš„æ‰‹ç‰Œ*/
 		if(position == 3) sortCards(pokerW);
 	}
 	
 	/**
-	 * ÕûÀíÆË¿ËÅÆ
-	 * @param cards ĞèÒª±»ÕûÀíµÄÆË¿ËÅÆ
+	 * æ•´ç†æ‰‘å…‹ç‰Œçš„æ–¹æ³•
+	 * @param cards éœ€è¦æ•´ç†çš„æ‰‘å…‹ç‰Œ
 	 */
 	public static void sortCards(Card[] cards) {
 		int len = cards.length;
 		
-		/* ÕûÀíÆË¿ËÅÆ(Ê¹ÓÃÃ°ÅİÅÅĞò)*/
+		/* ä½¿ç”¨å†’æ³¡æ’åº*/
 		Card temp = null;
 		for(int i = len - 1; i > 0; i--) {
 			for(int j = 0; j < i; ++j) {
@@ -213,18 +213,18 @@ public class Poker {
 	}
 
 	/**
-	 * ÓÃÓÚ²âÊÔµÄÖ÷·½·¨
+	 * ç”¨äºæµ‹è¯•çš„ä¸»æ–¹æ³•
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println("52ÕÅÆğÊ¼ÆË¿ËÅÆ£º");
+		System.out.println("52å¼ èµ·å§‹æ‰‘å…‹ç‰Œï¼š");
 		Poker.printALLCards();
-		Poker.licensing(0);	// ÏÈ¸ø±±¼Ò·¢ÅÆ
-		System.out.println("Ï´ÅÆºóµÄ52ÕÅÆË¿ËÅÆ£º");
+		Poker.licensing(0);	// å…ˆç»™åŒ—å®¶å‘ç‰Œ
+		System.out.println("æ´—ç‰Œåçš„52å¼ æ‰‘å…‹ç‰Œï¼š");
 		Poker.printALLCards();
-		System.out.println("·¢ÅÆµÄ½á¹û£º");
+		System.out.println("å››ä½ç©å®¶çš„èµ·å§‹æ‰‹ç‰Œï¼š");
 		for(int i = 0; i < 4; i++) Poker.printPlayerCards(i);
-		System.out.println("ÕûÀíÍæ¼ÒÊÖÅÆºóµÄ½á¹û");
+		System.out.println("æ•´ç†åå››ä½ç©å®¶çš„æ‰‹ç‰Œï¼š");
 		for(int i = 0; i < 4; i++) { Poker.sortPlayerCards(i); Poker.printPlayerCards(i);}
 	}
 

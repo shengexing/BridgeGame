@@ -1,0 +1,13 @@
+package entity;
+
+/**
+ * 公告信息类
+ * @author Time
+ *
+ */
+public class Note {
+	
+	private int id;		// 公告编号
+	private String inf;	// 公告内容
+
+}

@@ -1,0 +1,84 @@
+package entity;
+
+import entity.playercontent.PlayerRole;
+import entity.tablecontent.TablePosition;
+
+/**
+ * 桥牌叫牌玩家类
+ * @author Time
+ *
+ */
+public class Player {
+	
+	
+	private int id;		// 桥牌叫牌玩家编号
+	private String name;	// 桥牌叫牌玩家的用户名
+	private int round_id;	// 桥牌叫牌回合的编号
+	private Card[] cards = new Card[13]; 	// ���ֵ�����
+	private PlayerRole role;	// ���ְ��ݵĽ�ɫ
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public TablePosition getPosition() {
+		return position;
+	}
+
+	/**
+	 * 
+	 * @param position
+	 */
+	public void setPosition(TablePosition position) {
+		this.position = position;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public Card[] getCards() {
+		return cards;
+	}
+
+	/**
+	 * 
+	 * @param card
+	 */
+	public void setCards(Card[] cards) {
+		this.cards = cards;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public PlayerRole getRole() {
+		return role;
+	}
+
+	/**
+	 * 
+	 * @param role
+	 */
+	public void setRole(PlayerRole role) {
+		this.role = role;
+	}
+
+	
+
+
+	/**
+	 * Player��ȱʡ���췽��
+	 */
+	public Player() {
+		
+	}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

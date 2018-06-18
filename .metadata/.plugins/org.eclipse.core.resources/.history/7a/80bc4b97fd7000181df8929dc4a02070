@@ -1,0 +1,32 @@
+package entity;
+
+/**
+ * 系统的用户信息，对应于bridge数据库中的users表
+ * 建表语句如下：
+ */
+
+/*CREATE TABLE `users` (
+  `name` varchar(45) NOT NULL COMMENT '用户名',
+  `password` varchar(20) NOT NULL DEFAULT '123456' COMMENT '用户的密码',
+  `indentity` int(11) NOT NULL DEFAULT '1' COMMENT '用户的身份，0：管理员；1：普通用户',
+  `phone_number` varchar(11) NOT NULL COMMENT '用户的手机号',
+  `address` varchar(45) NOT NULL COMMENT '用户的地址',
+  `rank` varchar(2) NOT NULL DEFAULT '新手' COMMENT '用户的级别',
+  PRIMARY KEY (`name`),
+  UNIQUE KEY `phone_number_UNIQUE` (`phone_number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='桥牌游戏的用户表';
+*/
+
+public class Users {
+	
+	private String name;                         // 用户名
+	private String password = "123456";      // 密码默认为“123456”
+	private int indentity = 1;         // 角色默认为普通用户
+	private String phone_number;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

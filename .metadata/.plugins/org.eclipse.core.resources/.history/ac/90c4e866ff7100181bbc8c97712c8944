@@ -1,0 +1,18 @@
+package entity;
+
+/**
+ * 完整叫牌回合中一个小的叫牌回合的类
+ * @author Time
+ *
+ */
+public class Contract {
+	
+	private int id;		// 回合编号
+	private int round_id;		// 完整游戏回合编号
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

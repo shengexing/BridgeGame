@@ -10,16 +10,16 @@
 	position: absolute;
 	margin: 1px;
 	border-style: solid;
-	border-width: 1px;
+	border-width: 0px;
 	border-color: yellow;
-	background-color: gray;
 }
+
 #main {
-	left: 0px;
+	position: absolute;
+	left: 200px;
 	top: 0px;
 	width: 600px;
 	height: 600px;
-	background-color: gray;
 }
 
 #North {
@@ -254,8 +254,14 @@
 #div_cardsI12 {position: absolute; left: 240px; bottom: 1px; width: 50px; height: 80px; z-index: 12;}
 
 #but {
-	left: 600px;
+	position: absolute;
+	left: 900px;
 	top: 0px;
 	width: 300px;
 	height: 600px;
+	margin: 1px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: yellow;
+	background-color: gray;
 }

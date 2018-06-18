@@ -1,0 +1,26 @@
+package entity;
+
+/**
+ * 一个完整叫牌回合的类
+ * @author Time
+ *
+ */
+public class Round {
+	
+	private int id;		// 游戏回合编号
+	private String time;	// 游戏回合开始时间
+	private String positionN;	// 北方玩家的用户名
+	private String positionE;	// 东方玩家的用户名
+	private String positionS;	// 南方玩家的用户名
+	private String positionW;	// 西方玩家的用户名
+	private String target;		// 游戏回合的定约
+	private int firstPlayer;	// 游戏回合第一位叫牌的玩家的方位
+	private int banker;		// 游戏回合的庄家的方位
+	
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

@@ -1,0 +1,56 @@
+package entity;
+
+/**
+ * 扑克牌卡牌的类
+ * @author Time
+ *
+ */
+public class Card {
+	
+	private int code;			// 卡牌编号（0~51）
+
+	public Card() {
+		super();
+	}
+
+	public Card(int code) {
+		super();
+		this.code = code;
+	}
+	
+
+	public int getCode() {
+		return code;
+	}
+
+	public void setCode(int code) {
+		this.code = code;
+	}
+	
+
+	@Override
+	public String toString() {
+		int c = code % 4, n = code % 13;
+		String color, number;
+		
+		switch (c) {
+			case 0: color = "梅花"; break;
+			case 0: color = "方片"; break;
+			case 0: color = "红桃"; break;
+			case 0: color = "梅花"; break;
+			default: break;
+		}
+		
+		return "Card [code=" + code + "]";
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,17 @@
+package entity;
+
+/**
+ * 一个完整叫牌回合的类
+ * @author Time
+ *
+ */
+public class Round {
+	
+	private id = "";
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
